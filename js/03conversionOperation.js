@@ -24,3 +24,46 @@ let someNmber = 33
 let stringNumber = String(someNmber);
 console.log(stringNumber);//output is=>33
 console.log(typeof stringNumber);//output is=>string
+
+//if we want to convert string to number then we can use parseInt() and parseFloat() methods
+
+//*************************************Operations********************************** */
+
+let value = 3
+let negativeValue = -value;
+console.log(negativeValue);//output is=>-3
+
+console.log(2+2);//output is=>4
+console.log("2"+"2");//output is=>22
+console.log("2"+2);//output is=>22
+console.log(2+"2");//output is=>22
+console.log(2-2);//output is=>0
+console.log("2"-2);//output is=>0
+console.log(2-"2");//output is=>0
+console.log("2"-"2");//output is=>0
+console.log("2"*"2");//output is=>4
+console.log("2"/"2");//output is=>1
+console.log(2*2);//output is=>4
+console.log(2/2);//output is=>1
+console.log(2%2);//output is=>0
+console.log(2%3);//output is=>2
+console.log("1" + 2 +2);//output is=>122
+console.log(1 + 2 + "2");//output is=>32
+console.log("1" + 2 - 2);//output is=>1
+console.log(1 + 2 - "2");//output is=>1
+console.log(true);//output is=>true
+console.log(+true);//output : Error: Uncaught SyntaxError: Unexpected token '+'
+
+
+let str1 = "Anoop"
+let str2 = "Kumar"
+let str3 = str1 + " " + str2;
+console.log(str3);//output is=>Anoop Kumar
+
+let x = 10;
+let y = x++;//postfix increment first assigns value of x to y and then increments x
+console.log(x,y);//output =>11,10
+
+let a = 10;
+let b = ++a;//prefix increment first increments a and then assigns value of a to b
+console.log(a,b);//output =>11,11
