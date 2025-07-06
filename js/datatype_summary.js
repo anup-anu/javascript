@@ -32,3 +32,25 @@ let myObj = {
 let sum = function (a, b) {
     return a + b;
 }
+
+//**************************************************************************************
+// Stack (primitive data types) vs Heap (non-primitive data types)
+// Primitive data types are stored in the stack, which is a region of memory that stores static
+
+let myyoutubrName = 'codewithharry'; // moves to stack
+let anotherName = myyoutubrName; // anotherName points to the same memory location as myyoutubrName
+anotherName = 'codewithharry2'; // anotherName now points to a new memory location, myyoutubrName remains unchanged
+console.log(myyoutubrName); // output is => codewithharry
+console.log(anotherName); // output is => codewithharry2
+
+let user = {
+    email: "user@google.com",
+    upi: "user@upi"
+}
+
+let user2 = user; // user2 points to the same memory location as user
+user2.email = "user@microsoft.com"; // modifying user2 also modifies user
+
+
+console.log(user.email); // output is => user@microsoft.com
+console.log(user2.email); // output is =>user@microsoft.com
