@@ -22,5 +22,5 @@ newdate.toLocaleString('deafault', {
     day : 'numeric',
     hour : '2-digit',
     minute : '2-digit',
-    second : '2-digit',
-)
+    second : '2-digit'
+}); // output is => current date and time in a locale-specific format with weekday, year, month, day, hour, minute, and second
