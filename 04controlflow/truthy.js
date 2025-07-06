@@ -30,3 +30,18 @@ const EMTYOBJ = {}
 if(Object.keys(EMTYOBJ).length === 0){
     console.log("Object is empty")
 }
+
+//Nullish Coalishing Operator(??):null undefined
+
+let val;
+//val = 10 ?? 30
+val = null ?? 20 ?? 30 // only first occurance assigned to variable
+
+console.log(val);
+
+//ternary operator
+
+//condition ? true : false
+
+const icePrice = 100;
+icePrice >= 80 ? console.log("price more than 80") : console.log("price less than 80")
