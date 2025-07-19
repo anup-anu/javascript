@@ -1,0 +1,326 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #4a90e2;
+  --accent: #2ecc71;
+  --bg: #f4f7fa;
+  --text: #222;
+  --radius: 12px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+/* Navbar */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+  background: #ffffffdd;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: var(--shadow);
+  z-index: 100;
+  animation: slideDown 0.5s ease-out;
+}
+/* --------- Toggle Switch Styles --------- */
+.theme-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 50px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Checked state */
+input:checked + .slider {
+  background-color: #4a90e2;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* --------- Light & Dark Themes --------- */
+body {
+  transition: background 0.4s, color 0.4s;
+}
+
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark #navbar {
+  background: #1f1f1fdd;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark input[type="text"] {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark #results,
+body.dark #weight-guide {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark #bmi-bar {
+  background: #3a3a3a;
+}
+
+#navbar button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+#navbar button:hover {
+  background: #3b7bd9;
+  transform: scale(1.05);
+}
+
+/* Container */
+.container {
+  width: 95%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Title */
+.container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--primary);
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  position: relative;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius);
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+/* Button */
+form button[type="submit"] {
+  padding: 14px;
+  font-size: 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background: #27ae60;
+  transform: translateY(-2px);
+}
+
+/* Results */
+#results {
+  padding: 16px;
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  background: #f6f8fa;
+  border-radius: var(--radius);
+  border-left: 5px solid var(--primary);
+  animation: fadeIn 0.4s ease;
+}
+
+/* Guide Box */
+#weight-guide {
+  background: #f1f5ff;
+  border-left: 5px solid var(--accent);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-top: 30px;
+  animation: fadeIn 1s ease;
+}
+
+#weight-guide h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+#weight-guide p {
+  color: #555;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  #navbar button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+/* ----------- BMI Meter Styles ----------- */
+#bmi-meter {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#bmi-bar {
+  position: relative;
+  background: #eee;
+  height: 25px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#bmi-fill {
+  height: 100%;
+  width: 0%;
+  background: #007bff;
+  border-radius: 20px;
+  transition: width 1s ease-in-out, background-color 0.6s ease;
+}
+
+#bmi-label {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* ✅ Dark mode fix for guide text */
+body.dark #weight-guide {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark #weight-guide h3,
+body.dark #weight-guide p {
+  color: #e0e0e0;
+}
